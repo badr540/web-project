@@ -1,0 +1,41 @@
+{% extends "layouts/base.html" %}
+
+
+{% block content %}
+
+{% block stylesheets %}
+
+<style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    }
+</style>
+   
+{% endblock stylesheets %}
+
+<table>
+    <caption>Leaderboard</caption>
+    <tr >
+    <th>No.</th>
+    <th>Name</th>
+    <th>Score</th>
+    </tr>
+    <tr>
+    <td>1</td>
+    <td>guest</td>
+    <td>2</td>
+    </tr>
+    <tr>
+    <td>2</td>
+    <td>guest</td>
+    <td>1.50</td>
+    </tr>
+    <tr>
+    <td>3</td>
+    <td>guest</td>
+    <td>2.5</td>
+    </tr>
+    </table>
+{% endblock content %}

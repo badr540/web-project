@@ -1,1 +1,21 @@
-<h1>game wesbite</h1>
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+{% block stylesheets %}
+
+<style>
+    canvas {
+    border: 1px solid #6e7c8c;
+    background-color: black;
+    border-collapse: collapse;
+    width: 10%;
+    height: 10%;
+    padding: 10%;
+    }
+</style>
+{% endblock stylesheets %}
+
+<canvas></canvas>
+{% endblock content %}
+
