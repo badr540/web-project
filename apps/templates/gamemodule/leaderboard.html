@@ -3,6 +3,7 @@
 
 {% block content %}
 
+
 {% block stylesheets %}
 
 <style>
@@ -11,6 +12,7 @@
     border-collapse: collapse;
     padding: 10px;
     }
+
 </style>
    
 {% endblock stylesheets %}
@@ -20,24 +22,29 @@
 <table>
     <caption>Leaderboard</caption>
     <tr >
-    <th>No.</th>
-    <th>Name</th>
-    <th>Score</th>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Score</th>
     </tr>
-    <tr>
-    <td>1</td>
-    <td>guest</td>
-    <td>500</td>
+    {% for i in scores %}
+    <tr >
+        <th>{{forloop.counter}}</th>
+        <th>guest</th>
+        <th>{{i}}</th>
     </tr>
-    <tr>
-    <td>2</td>
-    <td>guest</td>
-    <td>450</td>
-    </tr>
-    <tr>
-    <td>3</td>
-    <td>guest</td>
-    <td>300</td>
-    </tr>
-    </table>
+    {% endfor %}
+</table>
+
+<form>
+    <button type="submit" name="Load" value="{{ scores|length }}" >Load More</button>
+    <select name="LoadSize">
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+    </select>
+</form>
+   
+
 {% endblock content %}
