@@ -1,10 +1,6 @@
 from django.shortcuts import render, redirect
 import random as rand
-
-scores = []    
-scores.append(rand.randint(1000,5000))
-for i in range(49):
-    scores.append(rand.randint(max(scores[i-1] - 300, 0), scores[i-1] ))
+from .models import HighScores
 
 def index(request):
     # this view return index
@@ -15,11 +11,13 @@ def leaderboard(request):
     if request.method == "GET":
         if request.GET.get('Load') != None:
             NumberOfElements = int(request.GET.get('Load')) + int(request.GET.get('LoadSize')) 
+            
 
 
+    highScores = list(HighScores.objects.values_list('score', flat=True))
 
 
-    return render(request, 'gamemodule/leaderboard.html', {'scores': scores[0: min( NumberOfElements, len(scores)) ]})
+    return render(request, 'gamemodule/leaderboard.html', {'scores': highScores[0:NumberOfElements]})
 
 
 
